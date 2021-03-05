@@ -15,7 +15,7 @@ using System.Threading;
 using Volo.Abp.EntityFrameworkCore.DependencyInjection;
 
 namespace Volo.Abp.Domain.FreeSql
-{  
+{   
 	public class FreeSqlRepository<TDbContext, TEntity, TKey> : FreeSqlRepository<TDbContext>, IFreeSqlRepository, IUnitOfWorkEnabled
 		where TDbContext : IEfCoreDbContext
 		where TEntity : class,IEntity<TKey>
