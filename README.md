@@ -1,5 +1,7 @@
 # volo.abp.freesql
-- FreeSql是一款优秀的Orm框架,首先感谢FreeSql的作者,引入Volo.Abp.FreeSql 作为扩展模块,集成到Abp.VNext中.方便应用.
+- FreeSql是一款优秀的Orm框架,首先感谢FreeSql的作者,
+Abp VNext也是一个很优秀的后台框架
+引入Volo.Abp.FreeSql 作为扩展模块,集成到Abp.VNext中.方便应用.
 
 - 使用者所做任何事情也与本作者无关。觉得好用请给个星
 
