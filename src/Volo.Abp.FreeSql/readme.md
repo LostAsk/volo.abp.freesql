@@ -12,7 +12,7 @@ IFreeSql 自身的成员 IDbFirst、Transaction 不可用；
 
 ## 安装
 
-> dotnet add package Volo.Abp.FreeSql
+> dotnet add package AbpVNext.FreeSql
 
 ## 使用
 
