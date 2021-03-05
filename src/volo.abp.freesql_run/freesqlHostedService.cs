@@ -11,15 +11,23 @@ using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.FreeSql;
 using FreeSql.DatabaseModel;
 using FreeSql.DataAnnotations;
+using System.ComponentModel;
 namespace volo.abp.freesql_run
 {
     [Table(Name = "TestModel2")]
     public class TestModel : Entity<int> { 
         [Column(IsIdentity =true,IsPrimary =true)]
         public override int Id { get;  protected set; }
+        [Description("测试啊")]
         public string a { get; set; }
 
         public int b { get; set; }
+        [Column(MapType = typeof(string))]
+        public TesEnum? TesEnum { get; set; }
+    }
+
+    public enum TesEnum { 
+        金,木,水
     }
 
     /// <summary>

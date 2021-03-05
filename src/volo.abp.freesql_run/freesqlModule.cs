@@ -43,7 +43,7 @@ namespace volo.abp.freesql_run
                 opt.ConfigureFreeSql<TestDbContext>((freesql =>
                 {
                     freesql.Aop.CommandBefore += (_, e) => Console.WriteLine(e.Command.CommandText);
-
+                    
                 }));
             });
             ///无关代码，只是在这个模块当作运行模块需要而已
