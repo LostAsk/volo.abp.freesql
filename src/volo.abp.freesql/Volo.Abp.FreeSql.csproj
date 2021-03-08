@@ -15,7 +15,7 @@ IFreeSql 的ICodeFirst 不可用
 IFreeSql 自身的成员 IDbFirst、Transaction 不可用；</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>AbpVNext.FreeSql</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.4</Version>
     <Copyright>Lost_Ask</Copyright>
     <PackageReleaseNotes>https://github.com/LostAsk/volo.abp.freesql/tree/master</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/LostAsk/volo.abp.freesql</PackageProjectUrl>
