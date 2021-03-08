@@ -26,5 +26,9 @@ namespace Volo.Abp.Domain.FreeSql
 		IInsertOrUpdate<TEntity> InsertOrUpdate<TEntity>() where TEntity : class;
 
 		IDelete<TEntity> Delete<TEntity>() where TEntity : class;
+
+		Task<bool> SolftDelete<TEntity>(TEntity entity) where TEntity :class, ISoftDelete;
+
+		Task<bool> SolftDelete<TEntity>(IEnumerable<TEntity> entity) where TEntity :class, ISoftDelete;
 	}
 }

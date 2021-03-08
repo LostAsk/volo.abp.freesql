@@ -14,8 +14,13 @@ using FreeSql.DataAnnotations;
 using System.ComponentModel;
 namespace volo.abp.freesql_run
 {
+
+
+
+
     [Table(Name = "TestModel2")]
-    public class TestModel : Entity<int> { 
+    public class TestModel : Entity<int> , ISoftDelete
+    { 
         [Column(IsIdentity =true,IsPrimary =true)]
         public override int Id { get;  protected set; }
         [Description("测试啊")]
@@ -24,6 +29,7 @@ namespace volo.abp.freesql_run
         public int b { get; set; }
         [Column(MapType = typeof(string))]
         public TesEnum? TesEnum { get; set; }
+        public bool IsDeleted { get; set; }
     }
 
     public enum TesEnum { 

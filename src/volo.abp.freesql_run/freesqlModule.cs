@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using Volo.Abp;
 using Volo.Abp.Autofac;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.FreeSql;
@@ -43,7 +44,7 @@ namespace volo.abp.freesql_run
                 opt.ConfigureFreeSql<TestDbContext>((freesql =>
                 {
                     freesql.Aop.CommandBefore += (_, e) => Console.WriteLine(e.Command.CommandText);
-                    
+                    freesql.GlobalFilter.Apply<ISoftDelete>(nameof(ISoftDelete), (x) => x.IsDeleted != true);
                 }));
             });
             ///无关代码，只是在这个模块当作运行模块需要而已

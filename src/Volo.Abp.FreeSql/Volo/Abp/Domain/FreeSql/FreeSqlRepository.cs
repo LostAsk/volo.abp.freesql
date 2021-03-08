@@ -13,7 +13,7 @@ using Volo.Abp.Domain.Repositories;
 using System.Threading.Tasks;
 using System.Threading;
 using Volo.Abp.EntityFrameworkCore.DependencyInjection;
-
+using System.Linq;
 namespace Volo.Abp.Domain.FreeSql
 {   
 	public class FreeSqlRepository<TDbContext, TEntity, TKey> : FreeSqlRepository<TDbContext>, IFreeSqlRepository, IUnitOfWorkEnabled
@@ -85,6 +85,17 @@ namespace Volo.Abp.Domain.FreeSql
 				: _dbContextProvider.GetDbContext().Database.CurrentTransaction.GetDbTransaction().Delete<TEntity>();
 		}
 
+        public async Task<bool> SolftDelete<TEntity>(TEntity entity) where TEntity : class, ISoftDelete
 
-	}
+		{
+			var row	=await Update<TEntity>().Set(x => x.IsDeleted, true).SetSource(entity).ExecuteAffrowsAsync();
+			return row == 1;
+		}
+
+        public async Task<bool> SolftDelete<TEntity>(IEnumerable<TEntity> entitys) where TEntity :class, ISoftDelete
+		{
+			var row = await Update<TEntity>().Set(x => x.IsDeleted, true).SetSource(entitys).ExecuteAffrowsAsync();
+			return row == entitys.Count();
+		}
+    }
 }

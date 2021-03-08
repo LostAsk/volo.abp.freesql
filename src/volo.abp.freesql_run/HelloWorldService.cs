@@ -24,10 +24,11 @@ namespace volo.abp.freesql_run
         {
             using (var uow = UnitOfWorkManager.Begin(new AbpUnitOfWorkOptions { IsTransactional = true, IsolationLevel = System.Data.IsolationLevel.Serializable }))
             {
-                //var test = new TestModel { a = "ggg", b = 2, TesEnum = TesEnum.水 };
+                var list = await TestRepository.Select<TestModel>().ToOneAsync();
+                await TestRepository.SolftDelete(list);
                 //await TestRepository.Insert<TestModel>().AppendData(test).ExecuteAffrowsAsync();
-                var list = await TestRepository.Select<TestModel>().ToListAsync();
-                //await uow.CompleteAsync();
+                //var list = await TestRepository.Select<TestModel>().ToListAsync();
+                await uow.CompleteAsync();
             }
         }
         public void SayHello()
